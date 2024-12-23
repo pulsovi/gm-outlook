@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name     Outlook.com categories
+// @name     Outlook.com
 // @version  1
 // @grant    window
 // @match    https://outlook.live.com/mail/*
@@ -46,3 +46,10 @@ async function categorize(cat) {
   input.dispatchEvent(new Event('input', {bubbles: true}));
   input.dispatchEvent(new KeyboardEvent('keydown', {"keyCode": 13, "bubbles": true}));
 }
+
+
+document.addEventListener('keydown', (e) => {
+  if (e.code !== "ArrowDown") return;
+  if (!document.querySelector('[aria-label="Volet de contenu"]')) return;
+  document.querySelector('.aKEZUGyWi5haT6riFXgvp.customScrollBar').focus();
+});
